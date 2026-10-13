@@ -1,0 +1,138 @@
+<title>Falowody W04 odpowiedzi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: jedna kolumna czytania, każde pytanie to blok z numerem po lewej, wzory w ramkach z poziomym przewijaniem */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --fg: #1b2230;
+  --muted: #5b6577;
+  --line: #d9dee7;
+  --accent: #1f5fbf;
+  --accent-soft: #e4edfb;
+  --formula-bg: #eef1f6;
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161d; --surface: #1a202b; --fg: #e6e9ef; --muted: #98a2b5;
+    --line: #2c3544; --accent: #7fb0ff; --accent-soft: #1d2a42; --formula-bg: #222a38;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161d; --surface: #1a202b; --fg: #e6e9ef; --muted: #98a2b5;
+  --line: #2c3544; --accent: #7fb0ff; --accent-soft: #1d2a42; --formula-bg: #222a38;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 46rem; margin-inline: auto; padding-inline: 16px; padding-block: 24px 48px; }
+header { margin-bottom: 24px; }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: 1.9rem; line-height: 1.2; margin: 0 0 6px; text-wrap: balance; }
+.sub { color: var(--muted); font-size: .9rem; margin: 0; }
+.q { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; margin-bottom: 16px; min-width: 0; }
+.q h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; line-height: 1.35; margin: 0 0 12px; text-wrap: balance; }
+.q h2 span { color: var(--accent); margin-right: 6px; }
+.src { font-size: .78rem; color: var(--muted); letter-spacing: .04em; margin: 12px 0 0; }
+.formula { background: var(--formula-bg); border-radius: 6px; padding: 10px 12px; margin: 10px 0; overflow-x: auto; }
+.formula mjx-container { margin: 0 !important; }
+ul { margin: 8px 0; padding-left: 1.2rem; }
+li { margin-bottom: 4px; }
+.tablewrap { overflow-x: auto; margin: 10px 0; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+.tag { display: inline-block; background: var(--accent-soft); color: var(--accent); border-radius: 4px; padding: 0 6px; font-weight: 600; font-size: .85em; }
+.note { color: var(--muted); font-size: .9rem; }
+</style>
+<script>
+window.MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }, svg: { fontCache: 'global' } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+
+<div class="wrap">
+<header>
+  <h1>Falowody: pytania sprawdzające</h1>
+  <p class="sub">PE BiIB, wykład 4 (dr inż. A. Dukata, WAT). Odpowiedzi tylko z pliku wykładu, numery wzorów i slajdów jak w PDF.</p>
+</header>
+
+<section class="q">
+  <h2><span>1.</span>Akronimy TE, TM, TEM i kryterium podziału</h2>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Typ</th><th>Nazwa</th><th>Kryterium</th></tr>
+    <tr><td><b>TEM</b></td><td>poprzeczne elektromagnetyczne<br>(<i>transverse electromagnetic</i>)</td><td>\(E_{0z}=0,\ H_{0z}=0\)</td></tr>
+    <tr><td><b>TE</b> (zwane też H)</td><td>poprzeczne elektryczne<br>(<i>transverse electric</i>)</td><td>\(E_{0z}=0,\ H_{0z}\neq 0\)</td></tr>
+    <tr><td><b>TM</b> (zwane też E)</td><td>poprzeczne magnetyczne<br>(<i>transverse magnetic</i>)</td><td>\(E_{0z}\neq 0,\ H_{0z}=0\)</td></tr>
+    <tr><td>EH (HE)</td><td>hybrydowe (<i>hybrid</i>)</td><td>\(E_{0z}\neq 0,\ H_{0z}\neq 0\)</td></tr>
+  </table>
+  </div>
+  <p>Kryterium to istnienie składowych pola wzdłuż kierunku propagacji fali (oś \(z\)).</p>
+  <p class="src">SLAJD 12</p>
+</section>
+
+<section class="q">
+  <h2><span>2.</span>Składowa wzdłużna modów TE<sub>mn</sub> i TM<sub>mn</sub> w falowodzie prostokątnym</h2>
+  <p><span class="tag">TM<sub>mn</sub></span> (wzór 35), \(m,n = 1,2,3,\dots\)</p>
+  <div class="formula">\[ E_{0z}(x,y)=E_0\,\sin\!\left(\frac{m\pi}{a}x\right)\sin\!\left(\frac{n\pi}{b}y\right) \]</div>
+  <p><span class="tag">TE<sub>mn</sub></span> (wzór 36), \(m,n = 0,1,2,\dots\), nie oba naraz równe 0</p>
+  <div class="formula">\[ H_{0z}(x,y)=H_0\,\cos\!\left(\frac{m\pi}{a}x\right)\cos\!\left(\frac{n\pi}{b}y\right) \]</div>
+  <p class="note">Pierwszy wskaźnik dotyczy większego wymiaru przekroju (\(a>b\)).</p>
+  <p class="src">SLAJDY 25–26</p>
+</section>
+
+<section class="q">
+  <h2><span>3.</span>Częstotliwość graniczna modów TE<sub>mn</sub> i TM<sub>mn</sub> w falowodzie prostokątnym</h2>
+  <p>Liczba falowa odcięcia (wzór 38):</p>
+  <div class="formula">\[ k_{mn}=\pi\sqrt{\left(\frac{m}{a}\right)^2+\left(\frac{n}{b}\right)^2} \]</div>
+  <p>Częstotliwość graniczna (wzór 41):</p>
+  <div class="formula">\[ f_{mn}=\frac{\upsilon\,k_{mn}}{2\pi}=\frac{\upsilon}{2}\sqrt{\left(\frac{m}{a}\right)^2+\left(\frac{n}{b}\right)^2} \]</div>
+  <p>gdzie \(\upsilon=\dfrac{1}{\sqrt{\mu\varepsilon}}\) to prędkość fali w ośrodku nieograniczonym. Fala propaguje się bez tłumienia, gdy \(\omega>\omega_{mn}=\upsilon k_{mn}\).</p>
+  <p class="src">SLAJDY 27–29</p>
+</section>
+
+<section class="q">
+  <h2><span>4.</span>Najniższa częstotliwość graniczna falowodu prostokątnego i kołowego</h2>
+  <ul>
+    <li><b>Prostokątny:</b> mod <span class="tag">TE<sub>10</sub></span> (przy \(a>b\)), wzór 75
+      <div class="formula">\[ f_{10}=\frac{\upsilon}{2a} \]</div>
+      Przykład ze slajdu: \(a=2\) cm, powietrze, \(f_{10}=\dfrac{3\cdot10^{8}}{2\cdot 2\cdot10^{-2}}=7{,}5\) GHz.</li>
+    <li><b>Kołowy:</b> mod <span class="tag">TE<sub>11</sub></span>
+      <div class="formula">\[ f_{11}=\frac{\upsilon\,\chi'_{11}}{2\pi a}\approx\frac{\upsilon}{2\pi a}\cdot 1{,}841 \]</div>
+      gdzie \(\chi'_{11}=1{,}8412\ldots\) to pierwsze miejsce zerowe pochodnej funkcji Bessela \(J_1\).</li>
+  </ul>
+  <p class="note">Dla kołowego: TM mają \(f_{mn}=\dfrac{\upsilon\chi_{mn}}{2\pi a}\) (wzór 73), TE mają \(f_{mn}=\dfrac{\upsilon\chi'_{mn}}{2\pi a}\) (wzór 74).</p>
+  <p class="src">SLAJDY 30, 47–48</p>
+</section>
+
+<section class="q">
+  <h2><span>5.</span>Mod podstawowy w falowodzie</h2>
+  <p>Mod podstawowy (dominujący) to mod o <b>najniższej częstotliwości odcięcia</b>.</p>
+  <ul>
+    <li>falowód prostokątny: <span class="tag">TE<sub>10</sub></span></li>
+    <li>falowód kołowy: <span class="tag">TE<sub>11</sub></span></li>
+  </ul>
+  <p>Wymiary można dobrać tak, że w określonym zakresie częstotliwości propaguje się tylko mod podstawowy.</p>
+  <p class="src">SLAJDY 34, 49</p>
+</section>
+
+<section class="q">
+  <h2><span>6.</span>Długość fali w falowodzie a długość fali w przestrzeni swobodnej</h2>
+  <div class="formula">\[ \lambda=\frac{\lambda_0}{\sqrt{1-\dfrac{\omega_{mn}^2}{\omega^2}}}=\frac{\lambda_0}{\sqrt{1-\dfrac{f_{mn}^2}{f^2}}} \qquad (49) \]</div>
+  <p>Zawsze \(\lambda>\lambda_0\). Tu \(\lambda=\dfrac{2\pi}{k}\), \(\lambda_0=\dfrac{2\pi}{k_0}\), a \(k=k_0\sqrt{1-\omega_{mn}^2/\omega^2}\) (wzór 48).</p>
+  <p class="src">SLAJD 32</p>
+</section>
+
+<section class="q">
+  <h2><span>7.</span>Impedancja falowa i jej postać dla modu podstawowego</h2>
+  <p>Impedancja falowa łączy poprzeczne składowe pola:</p>
+  <div class="formula">\[ \mathbf{E}_T = Z_{TE}\,\mathbf{H}_T\times\hat{z}\ \ (\text{TE}),\qquad \mathbf{H}_T=\frac{1}{Z_{TM}}\,\hat{z}\times\mathbf{E}_T\ \ (\text{TM}) \]</div>
+  <p>Wzór 21 (\(Z\) i \(k_0\) to impedancja właściwa i liczba falowa w przestrzeni swobodnej):</p>
+  <div class="formula">\[ Z_{TE}=\frac{\omega\mu}{k}=Z\,\frac{k_0}{k},\qquad Z_{TM}=\frac{k}{\omega\varepsilon}=Z\,\frac{k}{k_0} \]</div>
+  <p>Dla modu podstawowego <span class="tag">TE<sub>10</sub></span> w falowodzie prostokątnym:</p>
+  <div class="formula">\[ Z_{TE}=\frac{Z}{\sqrt{1-\dfrac{f_{10}^2}{f^2}}},\qquad E_y=-Z_{TE}\,H_x \]</div>
+  <p class="note">Składowe TE<sub>10</sub>: \(H_z=H_0\cos\frac{\pi x}{a}\,e^{j(\omega t-kz)}\), \(H_x=\dfrac{jka}{\pi}H_0\sin\frac{\pi x}{a}\,e^{j(\omega t-kz)}\), \(E_y=-Z_{TE}H_x\). Tylko te trzy są niezerowe.</p>
+  <p class="src">SLAJDY 16–17, 36</p>
+</section>
+</div>
